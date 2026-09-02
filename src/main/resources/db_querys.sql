@@ -1,6 +1,6 @@
 --- RESTAURANTS
 
-DROP TABLE IF EXISTS restaurant;
+DROP TABLE IF EXISTS restaurant CASCADE;
 
 DROP SEQUENCE IF EXISTS restaurant_id;
 
@@ -17,7 +17,7 @@ description VARCHAR(100));
 
 
 
-DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS review CASCADE;
 
 DROP SEQUENCE IF EXISTS review_id_seq;
 
@@ -34,7 +34,7 @@ CREATE TABLE review
   CONSTRAINT review_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS role CASCADE;
 
 DROP SEQUENCE IF EXISTS role_id_seq;
 
@@ -49,7 +49,7 @@ CREATE TABLE role (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS app_user;
+DROP TABLE IF EXISTS app_user CASCADE;
 
 DROP SEQUENCE IF EXISTS user_id_seq;
 
@@ -69,7 +69,9 @@ CREATE TABLE app_user (
 -- Table structure for table `user_role`
 --
 
-DROP TABLE IF EXISTS user_role;
+DROP TABLE IF EXISTS user_role CASCADE;
+
+DROP SEQUENCE IF EXISTS user_role_id_seq;
 
 CREATE SEQUENCE user_role_id_seq;
 
@@ -79,9 +81,9 @@ CREATE TABLE user_role (
   role_id numeric not null,
   FOREIGN KEY ("user_id") REFERENCES app_user ("id"),
   FOREIGN KEY ("role_id") REFERENCES role ("id")
-)
+);
 
 
-insert into role (name) values ('ROLE_ADMIN')
+insert into role (name) values ('ROLE_ADMIN');
 
-insert into role (name) values ('USER')
+insert into role (name) values ('USER');

@@ -31,7 +31,7 @@ public class ApplicationConfiguration {
 				.append("://")
 				.append(dbHost)
 				.append(":")
-				.append("5432")
+				.append("5433")
 				.append("/")
 				.append(dbName)
 				.append("?user=")
