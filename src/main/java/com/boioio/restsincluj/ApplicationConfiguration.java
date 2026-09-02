@@ -23,6 +23,9 @@ public class ApplicationConfiguration {
 	@Value("${db.name}")
 	private String dbName;
 
+    @Value("${db.port}")
+    private String dbPort;
+
 	@Bean
 	public DataSource dataSource() {
 		String url = new StringBuilder()
@@ -31,7 +34,7 @@ public class ApplicationConfiguration {
 				.append("://")
 				.append(dbHost)
 				.append(":")
-				.append("5433")
+				.append(dbPort)
 				.append("/")
 				.append(dbName)
 				.append("?user=")

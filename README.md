@@ -16,6 +16,54 @@ We used:
 6. JUnit
 7. Mockito
 
+# Local setup
+
+## Requirements
+
+- Java 8
+- PostgreSQL
+- Maven Wrapper
+
+## Configure PostgreSQL
+
+Create a database named `restsInCluj`.
+
+The local configuration expects:
+
+- Host: `localhost`
+- Port: `5433`
+- User: `ciuverca`
+- Password: blank
+- Database: `restsInCluj`
+
+Create the local files directory:
+
+```bash
+mkdir -p "$HOME/RestsInCluj-files"
+```
+
+## Import the database schema
+
+From the project root, run:
+
+```bash
+psql -h localhost -p 5433 -U ciuverca -d restsInCluj -f src/main/resources/db_querys.sql
+```
+
+Warning: the schema script drops and recreates local tables. Rerunning it deletes local restaurants, reviews, users, and roles.
+
+## Start the application
+
+```bash
+JAVA_HOME=$(/usr/libexec/java_home -v 1.8) bash mvnw spring-boot:run
+```
+
+Open:
+
+```text
+http://localhost:8090
+```
+
 # Images
 
   --- Home Page ---       
