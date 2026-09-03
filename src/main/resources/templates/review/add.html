@@ -3,43 +3,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-
-            var selectedRestaurant = 0;
-
-            $('#inputGroupSelect01').on('change', function () {
-                selectedRestaurant = $(this).find("option:selected").val();
-            });
-
-
-
-            $("#myform").on("submit", function () {
-                var selectedRestaurantWithoutCommas = selectedRestaurant.replace(/,/g, '');
-                document.getElementById('restaurant_id').value = selectedRestaurantWithoutCommas;
-                return true;
-            })
-        });
-    </script>
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery.mi..."></script>
-
-    <script type="text/javascript">
-
-        $(document).ready(function(){
-
-        $("select.country").change(function(){
-
-        var selectedCountry = $(".country option:selected").val();
-
-        alert("You have selected the country - " + selectedCountry);
-
-        });
-
-        });
-</script>
-
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -105,14 +68,14 @@
                                 <li class="list-group-item bg-dark">
                                     <div class="form-group">
                                         <label for="inputGroupSelect01">Restaurant</label>
-                                        <select class="custom-select" id="inputGroupSelect01">
-                                            <option selected="">Choose...</option>
-                                            <div th:each="restaurant : ${restaurants}">
-                                                <option th:value="${restaurant.id}" th:text="${restaurant.name}"></option>
-                                            </div>
+                                        <select th:field="*{restaurant_id}" class="custom-select" id="restaurant">
+                                            <option value="0">Choose...</option>
+                                            <option th:each="restaurant: ${restaurants}"
+                                                    th:value="${restaurant.id}"
+                                                    th:text="${restaurant.name}">
+                                            </option>
                                         </select>
                                     </div>
-                                    <input id="restaurant_id" name="restaurant_id" type="hidden" th:value="${review.restaurant_id}"/>
                                 </li>
                                 <li class="list-group-item bg-dark">
                                     <div class="form-group">
@@ -126,7 +89,7 @@
                                         <label for="dateOfVisit">Date of visit</label>
                                         <input th:field="*{dateOfVisit}" type="text" class="form-control"
                                                id="dateOfVisit"
-                                               placeholder="Date of visit"/>
+                                               placeholder="dd/MM/yyyy"/>
                                     </div>
                                 </li>
                                 <li class="list-group-item bg-dark">
@@ -134,7 +97,7 @@
                                         <label for="dateOfReview">Date of review</label>
                                         <input th:field="*{dateOfReview}" type="text" class="form-control"
                                                id="dateOfReview"
-                                               placeholder="Date of review"/>
+                                               placeholder="dd/MM/yyyy"/>
                                     </div>
                                 </li>
                                 <li class="list-group-item bg-dark">

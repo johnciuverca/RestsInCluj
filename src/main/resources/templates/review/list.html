@@ -121,12 +121,12 @@
             <span th:each="name : ${allReviews}">
                 <span th:if="${name.key} == ${tempReview.restaurant_id}" th:text="${allReviews[name.key]}"></span>
             </span>
-            <span class="text-muted float-right" th:text="'Reviewed ' + ${#dates.format(tempReview.dateOfReview, 'dd-MMM-yyyy')}"></span>
+            <span class="text-muted float-right" th:text="'Visited ' + ${#dates.format(tempReview.dateOfVisit, 'dd-MMM-yyyy')}"></span>
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p th:text="${tempReview.review}"></p>
-                <footer class="blockquote-footer"    th:text="${#dates.format(tempReview.dateOfReview, 'dd-MMM-yyyy')}"></footer>
+                <footer class="blockquote-footer"    th:text="'Reviewed ' + ${#dates.format(tempReview.dateOfReview, 'dd-MMM-yyyy')}"></footer>
             </blockquote>
         </div>
     </div>
