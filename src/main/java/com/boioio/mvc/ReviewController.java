@@ -105,6 +105,7 @@ public class ReviewController {
                 modelAndView = new ModelAndView("review/add");
                 modelAndView.addObject("errors", errors);
                 modelAndView.addObject("review", review);
+                modelAndView.addObject("restaurants", restaurantService.listAll());
             }
 
         } else {
@@ -118,6 +119,7 @@ public class ReviewController {
             modelAndView = new ModelAndView("review/add");
             modelAndView.addObject("errors", errors);
             modelAndView.addObject("review", review);
+            modelAndView.addObject("restaurants", restaurantService.listAll());
         }
 
         return modelAndView;
