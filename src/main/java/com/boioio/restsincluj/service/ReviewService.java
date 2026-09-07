@@ -95,7 +95,7 @@ public class ReviewService {
             }
         }
 
-        if(review.getRating() == null){
+        if(StringUtils.isEmpty(review.getRating())){
             errors.add("Rating not provided");
         }
 
