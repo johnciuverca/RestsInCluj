@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+import com.boioio.restsincluj.domain.RestType;
 
 import javax.validation.Valid;
 import java.util.*;
@@ -69,6 +70,7 @@ public class RestaurantController {
     public ModelAndView add() {
         ModelAndView modelAndView = new ModelAndView("restaurant/add");
         modelAndView.addObject("restaurant", new Restaurant());
+        modelAndView.addObject("restaurantTypes", Arrays.asList(RestType.values()));
         return modelAndView;
     }
 
@@ -77,6 +79,7 @@ public class RestaurantController {
         Restaurant restaurant = restaurantService.findById(id);
         ModelAndView modelAndView = new ModelAndView("restaurant/add");
         modelAndView.addObject("restaurant", restaurant);
+        modelAndView.addObject("restaurantTypes", Arrays.asList(RestType.values()));
         return modelAndView;
     }
 
