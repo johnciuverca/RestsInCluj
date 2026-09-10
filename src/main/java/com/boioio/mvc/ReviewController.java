@@ -77,6 +77,8 @@ public class ReviewController {
         Review review = reviewService.findById(id);
         ModelAndView modelAndView = new ModelAndView("review/add");
         modelAndView.addObject("review", review);
+        modelAndView.addObject("restaurants", restaurantService.listAll());
+        modelAndView.addObject("ratings", Arrays.asList("TERRIBLE", "POOR", "AVERAGE", "GOOD", "EXCELLENT"));
         return modelAndView;
     }
 
@@ -106,6 +108,7 @@ public class ReviewController {
                 modelAndView.addObject("errors", errors);
                 modelAndView.addObject("review", review);
                 modelAndView.addObject("restaurants", restaurantService.listAll());
+                modelAndView.addObject("ratings", Arrays.asList("TERRIBLE", "POOR", "AVERAGE", "GOOD", "EXCELLENT"));
             }
 
         } else {
@@ -120,6 +123,7 @@ public class ReviewController {
             modelAndView.addObject("errors", errors);
             modelAndView.addObject("review", review);
             modelAndView.addObject("restaurants", restaurantService.listAll());
+            modelAndView.addObject("ratings", Arrays.asList("TERRIBLE", "POOR", "AVERAGE", "GOOD", "EXCELLENT"));
         }
 
         return modelAndView;

@@ -89,8 +89,11 @@
                                 <li class="list-group-item bg-dark">
                                     <div class="form-group">
                                         <label for="type">Restaurant Type</label>
-                                        <input th:field="*{restType}" type="text" class="form-control" id="type"
-                                               placeholder="Restaurant Type"/>
+                                        <select th:field="*{restType}" class="form-control" id="type">
+                                            <option th:each="type : ${restaurantTypes}"
+                                                    th:value="${type}"
+                                                    th:text="${type}"></option>
+                                        </select>
                                     </div>
                                 </li>
                                 <li class="list-group-item bg-dark">

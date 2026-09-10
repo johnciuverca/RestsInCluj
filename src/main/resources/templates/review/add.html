@@ -105,29 +105,16 @@
                                 </li>
                                 <li class="list-group-item bg-dark">
                                 <div class="form-group">
-                                <label for="rating">Rating</label>
-                                <input th:field="*{rating}" type="text" class="form-control" id="rating"
-                                placeholder="Rating"/>
+                                    <label for="rating">Rating</label>
+                                    <select th:field="*{rating}" class="custom-select" id="rating">
+                                        <option value="">Choose a rating...</option>
+                                        <option th:each="myRating : ${ratings}"
+                                                th:value="${myRating}"
+                                                th:text="${myRating}">
+                                        </option>
+                                    </select>
                                 </div>
                                 </li>
-
-                                <!--DROPDOWN MENU - DOESN'T WORK-->
-                                <!--<li class="list-group-item bg-dark">-->
-                                <!--<div class="form-group">-->
-                                    <!--<label for="inputGroupSelect02">Rating</label>-->
-                                    <!--<select class="custom-select" id="inputGroupSelect02">-->
-                                        <!--<option selected="">Choose...</option>-->
-                                        <!--<div th:each="myRating : ${ratings}">-->
-                                            <!--<option th:value="${myRating}"-->
-                                                    <!--th:text="${myRating}">-->
-                                            <!--</option>-->
-                                        <!--</div>-->
-                                    <!--</select>-->
-                                <!--</div>-->
-                                <!--<input id="rating" name="rating" type="hidden"-->
-                                       <!--th:value="${review.rating}"/>-->
-                                <!--</li>-->
-
                                 <div th:if="${review.id != null}">
                                       <input th:field="*{id}" type="hidden" id="id"/>
                                 </div>
