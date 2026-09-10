@@ -108,6 +108,7 @@ public class RestaurantController {
                 modelAndView = new ModelAndView("restaurant/add");
                 modelAndView.addObject("errors", errors);
                 modelAndView.addObject("restaurant", restaurant);
+                modelAndView.addObject("restaurantTypes", Arrays.asList(RestType.values()));
             }
 
         } else {
@@ -121,6 +122,7 @@ public class RestaurantController {
             modelAndView = new ModelAndView("restaurant/add");
             modelAndView.addObject("errors", errors);
             modelAndView.addObject("restaurant", restaurant);
+            modelAndView.addObject("restaurantTypes", Arrays.asList(RestType.values()));
         }
 
         return modelAndView;
