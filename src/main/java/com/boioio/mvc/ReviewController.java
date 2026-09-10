@@ -123,6 +123,7 @@ public class ReviewController {
             modelAndView.addObject("errors", errors);
             modelAndView.addObject("review", review);
             modelAndView.addObject("restaurants", restaurantService.listAll());
+            modelAndView.addObject("ratings", Arrays.asList("TERRIBLE", "POOR", "AVERAGE", "GOOD", "EXCELLENT"));
         }
 
         return modelAndView;
