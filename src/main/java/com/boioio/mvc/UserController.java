@@ -41,7 +41,7 @@ public class UserController {
         if (!bindingResult.hasErrors()) {
             try {
                 userService.save(user);
-                RedirectView redirectView = new RedirectView("/register");
+                RedirectView redirectView = new RedirectView("/register?success=true");
                 modelAndView.setView(redirectView);
             } catch (ValidationException ex) {
 
